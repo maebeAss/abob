@@ -2,6 +2,7 @@ import { getTrustWalletInjectedProvider } from './common/blockchain/wallets/trus
 import { changeYourNet } from './common/blockchain/contract'
 import { walletConnection } from './common/blockchain/contract'
 import { checkBalance } from './common/blockchain/contract'
+import { register } from './common/blockchain/contract'
 
 function App() {
 
@@ -10,13 +11,17 @@ function App() {
   }
 
   const changeNet = async () => {
-    const injectedProvider = await getTrustWalletInjectedProvider();
-    changeYourNet(injectedProvider);
+    changeYourNet();
   }
 
   const BalanceCheck = async () => {
     const injectedProvider = await getTrustWalletInjectedProvider();
     checkBalance(injectedProvider);
+  }
+
+  const Registration = async () => {
+    const injectedProvider = await getTrustWalletInjectedProvider();
+    register(injectedProvider);
   }
 
   return (
@@ -26,6 +31,10 @@ function App() {
           <button onClick={handleConnect} className="button">Connect</button>
           <button onClick={changeNet} className="button">Change Your Net</button>
           <button onClick={BalanceCheck} className="button">Check all tokens</button>
+          <button onClick={Registration} className="button">Register</button>
+        </div>
+        <div className='inputs-sec'>
+          <input className='inpu'></input>
         </div>
       </header>
       <main>

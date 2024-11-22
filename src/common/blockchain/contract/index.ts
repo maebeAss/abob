@@ -1,25 +1,10 @@
 import { ethers } from "ethers"
 import { ABI_GAMECLIKER } from "./abi/gameclicker.abi";
-import { config } from "../config";
+import { configClicker, configToken } from "../config";
 import { getTrustWalletInjectedProvider } from '../wallets/trustwallet'
 import { ABI_DZBTOKEN } from "./abi/dzbtoken.abi";
 
-export const changeYourNet = async (provider: any) => {
-    const ethersProvider = new ethers.BrowserProvider (provider);
-
-    const signer = await ethersProvider.getSigner();
-
-    const contract = new ethers.Contract(
-        config.contract.address,
-        ABI_GAMECLIKER,
-        signer
-      )
-      const address = await signer.getAddress();
-
-      console.log(contract);
-
-      console.log(address);
-
+export const changeYourNet = async () => {
     const injectedProvider = await getTrustWalletInjectedProvider(); 
 
     await injectedProvider
@@ -52,7 +37,7 @@ export const checkBalance = async (provider: any) => {
   const signer = await ethersProvider.getSigner();
 
   const contract = new ethers.Contract(
-      config.contractT.address,
+      configToken.contract.address,
       ABI_DZBTOKEN,
       signer
     )
@@ -63,4 +48,17 @@ export const checkBalance = async (provider: any) => {
     console.log(BalanceOf);
 }
 
-export
+export const register = async (provider: any) => {
+  const ethersProvider = new ethers.BrowserProvider (provider);
+
+  const signer = await ethersProvider.getSigner();
+
+  const contract = new ethers.Contract(
+      configClicker.contract.address,
+      ABI_GAMECLIKER,
+      signer
+    )
+
+    const registration = await contract.Register(name);
+    console.log(registration);
+}
