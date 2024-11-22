@@ -1,37 +1,22 @@
-import { useState } from 'react'
-import './App.css'
 import { getTrustWalletInjectedProvider } from './common/blockchain/wallets/trustwallet'
-import { contract } from './common/blockchain/contract'
+import { changeYourNet } from './common/blockchain/contract'
+import { walletConnection } from './common/blockchain/contract'
+import { checkBalance } from './common/blockchain/contract'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-
-  const handleConnect = async () => {
-    console.log("faes");
-    const injectedProvider = await getTrustWalletInjectedProvider();
-    console.log(injectedProvider);
-
-    try {
-      const account = await injectedProvider.request({
-        method: "eth_requestAccounts",
-      });
-
-      console.log(account);
-    
-      console.log(account); // => ['0x...']
-    } catch (e) {
-      console.log(e);
-      if (e.code === 4001) {
-        console.error("User denied connection.");
-      }
-    }
+    const handleConnect = async () => {
+    walletConnection();
   }
 
-
-  const handleContract = async () => {
+  const changeNet = async () => {
     const injectedProvider = await getTrustWalletInjectedProvider();
-    contract(injectedProvider);
+    changeYourNet(injectedProvider);
+  }
+
+  const BalanceCheck = async () => {
+    const injectedProvider = await getTrustWalletInjectedProvider();
+    checkBalance(injectedProvider);
   }
 
   return (
@@ -39,7 +24,8 @@ function App() {
       <header>
         <div className='buttons-sec'>
           <button onClick={handleConnect} className="button">Connect</button>
-          <button onClick={handleContract} className="button">ладно</button>
+          <button onClick={changeNet} className="button">Change Your Net</button>
+          <button onClick={BalanceCheck} className="button">Check all tokens</button>
         </div>
       </header>
       <main>
