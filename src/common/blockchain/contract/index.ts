@@ -42,9 +42,11 @@ export const checkBalance = async (provider: any) => {
       signer
     )
 
-    const address = await signer.getAddress();
+    //const address = await signer.getAddress();
+    // const BalanceOf = await contract.balanceOf(address);
+    let inpuAddr = document.getElementById("CheckBalance").value;
+    let BalanceOf = await contract.balanceOf(inpuAddr);
 
-    const BalanceOf = await contract.balanceOf(address);
     console.log(BalanceOf);
 }
 
