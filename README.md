@@ -1,50 +1,17 @@
-# React + TypeScript + Vite
+#Что необходимо перед запуском
+  1. Убедитесь что у вас установлена nodeJS, git
+  2. Установите расширение TrustWallet в ваш дефолтный браузер
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Как установить и запустить
+  1. `git clone [https](https://github.com/maebeAss/abob)`
+  2. Открываете проект в любом код-редакторе (e.g. VSCode)
+  3. Создаёте новый терминал в папке abob, пишите в терминале `npm run dev`
+  4. В терминале у вас появится адрес вашего сайта, копируете и вставляете (Ну или если вы нормальный с зажатым Ctrl кликаете по адресу)
+  5. Убедитесь что вы вошли в свой кошелёк
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+#Использование
+  На странице сайта присутствуют 4 кнопки:
+    1. Connect (Подключает ваш кошелёк к сайту (ОБЯЗАТЕЛЬНО ДЛЯ РАБОТЫ ПРОЕКТА), т.е. dapp)
+    2. Change Your Net (Переключает актвиную сеть кошелька с любой вашей на Polygon (ОБЯЗАТЕЛЬНО ДЛЯ РАБОТЫ))
+    3. Check all tokens (Проверяет все токены Wailur(WLR) на адресе, который введён в строку ввода)
+    4. Register (Регистрирует вас внутри системы контракта GameClicker)
