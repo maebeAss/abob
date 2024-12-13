@@ -61,6 +61,8 @@ export const register = async (provider: any) => {
       signer
     )
 
-    const registration = await contract.Register(name);
+    let inpuName = document.getElementById("EnterName").value;
+
+    const registration = await contract.Register(inpuName);
     console.log(registration);
 }

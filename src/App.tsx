@@ -34,7 +34,8 @@ function App() {
           <button onClick={Registration} className="button">Register</button>
         </div>
         <div className='inputs-sec'>
-          <input className='inpu' id="CheckBalance"></input>
+          <input className='inpu' id="CheckBalance" placeholder="0x*?"></input>
+          <input className='inpu' id="EnterName" placeholder="Your name, Abobus, Rayan Gosling..."></input>
         </div>
       </header>
       <main>
